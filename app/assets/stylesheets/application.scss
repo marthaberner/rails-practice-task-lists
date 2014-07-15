@@ -93,6 +93,8 @@ h1 a {
 
 
 dd {
+  border: 1px solid red;
+  overflow:auto;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 0px;
@@ -100,6 +102,18 @@ dd {
   padding: .5em;
   background-color: lightgrey;
   border: 2px solid darkgray;
+}
+
+dd a {
+  text-align: center;
+  display: inline;
+  float: right;
+  width: 5em;
+  padding: .25em;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 3px 3px 3px black;
 }
 
 .notice {

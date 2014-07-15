@@ -42,4 +42,24 @@ feature 'Task lists' do
     end
   end
 
+  scenario 'A user can complete a task and it is no longer visible' do
+    create_user email: "user@example.com"
+    task_list = TaskList.create!(name: "Work List")
+    TaskList.create!(name: "Household Chores")
+    Task.create!(description: "My Task", task_list_id: task_list.id, due_date: "2014-07-17")
+
+    visit signin_path
+    click_on "Login"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+    expect(page).to have_content("Work List")
+    expect(page).to have_content("Household Chores")
+    expect(page).to have_content("My Task")
+    first(:link, "Complete").click
+
+    expect(page).to have_no_content("My Task")
+    expect(page).to have_content("Work List")
+  end
+
 end
