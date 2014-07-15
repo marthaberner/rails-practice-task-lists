@@ -1,6 +1,13 @@
 <h1>Add a task</h1>
 
 <%= form_for [:task_list, @task] do |f| %>
+  <% if @task.errors.present? %>
+    <div class="errors">
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message[12..-1] %></li>
+      <% end %>
+    </div>
+  <% end %>
   <p>
     <%= f.label :description, class: "form-label" %>
     <%= f.text_area :description, size: "35x1" %>

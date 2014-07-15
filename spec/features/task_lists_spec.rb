@@ -27,6 +27,19 @@ feature 'Task lists' do
 
     expect(page).to have_content("Do this task")
     expect(page).to have_content("Task was created successfully!")
+
+    # Task description cannot be empty
+    first(:link, "+ Add Task").click
+
+    select "2015", from: "task[due_date(1i)]"
+    select "06", from: "task[due_date(2i)]"
+    select "05", from: "task[due_date(3i)]"
+    click_on "Create Task"
+
+    expect(page).to have_content("Your task could not be created")
+    within(".errors") do
+      expect(page).to have_no_content("Description")
+    end
   end
 
 end
