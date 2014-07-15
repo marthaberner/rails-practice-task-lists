@@ -75,12 +75,54 @@ main {
 }
 
 .task-list {
-  padding: 1em;
+  padding: 0em;
   & + & {
     border-top: 1px solid darkblue;
   }
 
+h1 a {
+  float: right;
+}
+
   h1 {
     font-size: 110%;
+    margin: 0px;
+    padding: 0px;
   }
 }
+
+
+dd {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  width: 98%;
+  padding: .5em;
+  background-color: lightgrey;
+  border: 2px solid darkgray;
+}
+
+.notice {
+  padding: .5em;
+  font-size: 1em;
+  background-color: #81F79F;
+  border: 2px solid green;
+
+}
+
+.form-label {
+  display: block;
+  margin-bottom: .5em;
+  font-weight: bold;
+}
+
+.submit-button {
+  background-color: #2E64FE;
+  padding: .25em;
+  margin-top: 10px;
+  color: white;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px black;
+}
+
+

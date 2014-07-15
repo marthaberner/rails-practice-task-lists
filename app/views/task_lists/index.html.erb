@@ -1,7 +1,14 @@
+<h1>My Lists</h1>
 <% @task_lists.each do |task_list| %>
 
   <section class="task-list">
-    <h1><%= task_list.name %></h1>
-  </section>
-
+    <h1><%= task_list.name %><%= link_to "+ Add Task", new_task_list_task_path(task_list) %></h1>
+    <% task_list.tasks.each do |task| %>
+      <% unless task %>
+        <dd>Nothing to see here!</dd>
+      <% else %>
+        <dd><%= task.description %> (<%= distance_of_time_in_words(Time.now, task.due_date) %>)</dd>
+        </section>
+      <% end %>
+    <% end %>
 <% end %>
