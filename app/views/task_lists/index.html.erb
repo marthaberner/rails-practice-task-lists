@@ -5,10 +5,10 @@
     <h1><%= task_list.name %><%= link_to "+ Add Task", new_task_list_task_path(task_list) %></h1>
     <% task_list.tasks.each do |task| %>
       <% if task.completed == false %>
-      <dd>
+        <dd>
           <%= task.description %> (<%= distance_of_time_in_words(Time.now, task.due_date) %>)
-         <%= link_to "Complete", task_list_task_path(task.task_list_id, task), method: :put %>
-        <% end %>
+          <%= link_to "Complete", task_list_task_path(task.task_list_id, task), method: :put %>
+      <% end %>
       </dd>
       </section>
     <% end %>
